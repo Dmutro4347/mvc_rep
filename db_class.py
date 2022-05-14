@@ -20,6 +20,7 @@ class DataBase:
 
     def select(self, table_name):
         q = f'''SELECT * FROM {table_name}'''
+        # print(q)
         self.cur.execute(q)
         self.con.commit()
         for row in self.cur:
