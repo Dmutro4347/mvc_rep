@@ -38,6 +38,11 @@ class DataBase:
 
     def insert_from_file(self, table_name, file_name):
         with open(file_name) as fl:
-            line = '(' + fl.readline() + ')'
+            lines = fl.readlines()
             # self.insert(table_name, fl_line)
-            print(line)
+            id = 0
+            for line in lines:
+                id += 1
+                line = '(' + 'str(id),' + line + ')'
+                self.insert(table_name, line)
+
