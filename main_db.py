@@ -25,7 +25,7 @@ if answer == '1':
         db.delete(values[0], values[1])
     else:
         values = menu.insert_from_file_menu()
-        db.insert_from_file(values[0], values[1])
+        db.insert_from_file(values, values + '.txt')
 elif answer == '2':
     pass
 else:
