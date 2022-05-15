@@ -36,3 +36,4 @@ with open('group_.txt') as group:
 #     for human_sql in human_lines:
 #         c = human_sql.split(', ')
         
+

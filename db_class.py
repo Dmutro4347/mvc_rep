@@ -53,3 +53,4 @@ class DataBase:
                     id_ += 1
                     q = f'''({id_}, '{course_sql}')'''
                     self.insert(table_name, q)
+# test
