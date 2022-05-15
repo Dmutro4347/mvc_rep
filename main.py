@@ -21,12 +21,12 @@ cur = con.cursor()
 
 with open('group_.txt') as group:
     group_lines = group.readlines()
-    n = 0
+    id_ = 0
     for group_sql in group_lines:
         c = group_sql.split(', ')
-        n += 1
-        a = f'''INSERT INTO group_ VALUES({n}, '{c[0]}', {c[1]}, {c[2]}, '{c[3]}',{c[4]}, {c[5]})'''
-        cur.execute(a)
+        id_ += 1
+        q = f'''INSERT INTO group_ VALUES({id_}, '{c[0]}', {c[1]}, {c[2]}, '{c[3]}',{c[4]}, {c[5]})'''
+        cur.execute(q)
         con.commit()
 #         # print('a', a)
 #         # print('c', c)

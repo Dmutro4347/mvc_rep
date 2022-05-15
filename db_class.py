@@ -37,13 +37,19 @@ class DataBase:
         self.con.commit()
 
     def insert_from_file(self, table_name, file_name):
-        with open(file_name) as fl:
-            lines = fl.readlines()
-            # self.insert(table_name, fl_line)
-            id = 0
-            for line in lines:
-                id += 1
-                line = '(' + 'str(id),' + line + ')'
-                self.insert(table_name, line)
-
-# test
+        if file_name == 'group_.txt':
+            with open('group_.txt') as group:
+                group_lines = group.readlines()
+                id_ = 0
+                for group_sql in group_lines:
+                    group_split = group_sql.split(', ')
+                    id_ += 1
+                    self.insert(table_name, f"({id_}, '{group_split[0]}', {group_split[1]}, {group_split[2]}, '{group_split[3]}', {group_split[4]}, {group_split[5]})")
+        elif file_name == 'course.txt':
+            with open('course.txt') as course:
+                course_lines = course.readlines()
+                id_ = 0
+                for course_sql in course_lines:
+                    id_ += 1
+                    q = f'''({id_}, '{course_sql}')'''
+                    self.insert(table_name, q)
