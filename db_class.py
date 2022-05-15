@@ -46,3 +46,4 @@ class DataBase:
                 line = '(' + 'str(id),' + line + ')'
                 self.insert(table_name, line)
 
+# test
