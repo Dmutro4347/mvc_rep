@@ -44,7 +44,7 @@ class View:
 
     def insert_from_file_menu(self):
         print(Fore.CYAN + 'Вставка з файлу')
-        return input(Fore.GREEN + 'Шлях до файлу: ')
+        return input(Fore.GREEN + 'Імя таблиці: ')
 
     def admin_menu(self):
         print('')

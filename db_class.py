@@ -13,10 +13,12 @@ class DataBase:
         self.cur = self.con.cursor()
 
     def insert(self, table_name, values, table_columns=''):
+        if table_columns:
+            table_columns = '(' + table_columns + ')'
         q = f'''INSERT INTO {table_name} {table_columns}VALUES {values}'''
-        self.cur.execute(q)
-        self.con.commit()
-        # print(q)
+        # self.cur.execute(q)
+        # self.con.commit()
+        print(q)
 
     def select(self, table_name):
         q = f'''SELECT * FROM {table_name}'''
@@ -36,21 +38,31 @@ class DataBase:
         self.cur.execute(q)
         self.con.commit()
 
-    def insert_from_file(self, table_name, file_name):
-        if file_name == 'group_.txt':
-            with open('group_.txt') as group:
-                group_lines = group.readlines()
+    def insert_from_file(self, file_name, table_name):
+            with open(file_name) as fl:
                 id_ = 0
-                for group_sql in group_lines:
-                    group_split = group_sql.split(', ')
-                    id_ += 1
-                    self.insert(table_name, f"({id_}, '{group_split[0]}', {group_split[1]}, {group_split[2]}, '{group_split[3]}', {group_split[4]}, {group_split[5]})")
-        elif file_name == 'course.txt':
-            with open('course.txt') as course:
-                course_lines = course.readlines()
-                id_ = 0
-                for course_sql in course_lines:
-                    id_ += 1
-                    q = f'''({id_}, '{course_sql}')'''
-                    self.insert(table_name, q)
-# test
+                if file_name == 'group_.txt':
+                    for fl_line in fl:
+                        fl_split = fl_line.split(', ')
+                        id_ += 1
+                        self.insert(table_name, f"({id_}, '{fl_split[0]}', {fl_split[1]}, {fl_split[2]}, '{fl_split[3]}', {fl_split[4]}, {fl_split[5]})")
+                elif file_name == 'course.txt':
+                    for fl_line in fl:
+                        id_ += 1
+                        self.insert(table_name, f"({id_}, '{fl_line}')")
+
+                elif file_name == 'human.txt':
+                    for human_line in fl:
+                        human_line = human_line.split(', ')
+                        id_ += 1
+                        try:
+
+                            if human_line[2] == 'None':
+                                self.insert(table_name, f'{id_}, {human_line[0]}, {human_line[1]}, {human_line[2]}, {human_line[3]}')
+                            elif human_line[2][2] == '.':
+                                self.insert(table_name, f"{id_}, {human_line[0]}, {human_line[1]}, 'None', {human_line[3]}")
+                            else:
+                                pass
+
+                        except Exception as _ex:
+                            pass
