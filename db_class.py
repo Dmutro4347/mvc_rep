@@ -34,7 +34,7 @@ class DataBase:
         # print(q)
         self.cur.execute(q)
         self.con.commit()
-        return self.cur
+        print(self.cur)
 
     def insert(self, table_name, values, table_columns=''):
         if table_columns:
