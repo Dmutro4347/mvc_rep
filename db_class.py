@@ -29,13 +29,20 @@ class DataBase:
         self.cur.execute(q)
         self.con.commit()
 
+    def last_id(self, table):
+        q = f'''SELECT * FROM {table}'''
+        # print(q)
+        self.cur.execute(q)
+        self.con.commit()
+        return self.cur
+
     def insert(self, table_name, values, table_columns=''):
         if table_columns:
             table_columns = '(' + table_columns + ')'
         q = f'''INSERT INTO {table_name} {table_columns}VALUES {values}'''
         print(q)
-        self.cur.execute(q)
-        self.con.commit()
+        # self.cur.execute(q)
+        # self.con.commit()
 
     def insert_from_file(self, file_name, table_name):
             with open(file_name) as fl:

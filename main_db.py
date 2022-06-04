@@ -8,22 +8,41 @@ menu = view.View()
 answer = menu.main_menu()
 
 if answer == '1':
+    # DB
     answer = menu.db_menu(file_name)
 
     if answer == '1':
-        values = menu.insert_menu()
-        db.insert(values[0], values[1], values[2])
+        # select
 
-    elif answer == '2':
         table_name = menu.select_menu()
         db.select(table_name)
+    elif answer == '2':
+        # insert
+        answer = menu.new_menu()
+        if answer == '1':
+            # human
+            value = menu.new_human()
+            db.insert('human', f"'({value[0]}', '{value[1]}', '{value[2]}', '{value[3]})'")
+        elif answer == '2':
+            # group
+            pass
+        else:
+            # course
+            pass
+
     elif answer == '3':
+        # update
+
         values = menu.update_menu()
         db.update(values[0], values[1], values[2], values[3])
     elif answer == '4':
+        # delete
+
         values = menu.delete_menu()
         db.delete(values[0], values[1])
     else:
+        # insert from file
+
         values = menu.insert_from_file_menu()
         db.insert_from_file(values, values + '.txt')
 elif answer == '2':
