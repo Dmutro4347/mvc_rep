@@ -13,7 +13,6 @@ if answer == '1':
 
     if answer == '1':
         # select
-
         table_name = menu.select_menu()
         db.select(table_name)
     elif answer == '2':
@@ -22,10 +21,10 @@ if answer == '1':
         if answer == '1':
             # human
             value = menu.new_human()
-            db.insert('human', f"'({value[0]}', '{value[1]}', '{value[2]}', '{value[3]})'")
+            db.insert('human', f"'{value[0]}', '{value[1]}', '{value[2]}', '{value[3]}'")
         elif answer == '2':
             # group
-            pass
+            value = menu.new_group()
         else:
             # course
             pass

@@ -16,21 +16,31 @@ class View:
         return input(Fore.GREEN + 'що будем робити?: ')
 
     def new_menu(self):
-        print(Fore.CYAN + '1 - Нова людина\n2 - Нова група\n3 - Новий курс')
+        print(Fore.CYAN + '1 - Нова людина\n2 - Нова група\n3 - Новий курс\n 4 -новий учень')
         return input(Fore.GREEN + 'що будем робити?: ')
 
     def new_human(self):
         print(Fore.CYAN + 'Нова людина')
         return (
-            input(Fore.GREEN + 'Імя: '),
+            input(Fore.GREEN + "Ім'я: "),
             input(Fore.GREEN + 'Прізвище: '),
             input(Fore.GREEN + 'Номер телефону: '),
             input(Fore.GREEN + 'Дата народження (DD.MM.YYYY): ')
         )
+
+    def new_group(self):
+        print(Fore.CYAN + 'Нова група')
+        return (
+            input(Fore.GREEN + "Ім'я: "),
+            input(Fore.GREEN + 'Прізвище: '),
+            input(Fore.GREEN + 'Номер телефону: '),
+            input(Fore.GREEN + 'Дата народження (DD.MM.YYYY): ')
+        )
+
     def insert_menu(self):
         print(Fore.CYAN + 'Вставка в БД')
         return (
-            input(Fore.GREEN + 'Імя таблиці: '),
+            input(Fore.GREEN + "Ім'я таблиці: "),
             input(Fore.GREEN + 'Значення: '),
             input(Fore.GREEN + 'Порядок стовпців в таблиці або пусте значення: ')
         )
