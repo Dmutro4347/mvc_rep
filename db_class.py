@@ -41,10 +41,15 @@ class DataBase:
         if table_columns:
             table_columns = '(' + table_columns + ')'
         id_ = self.last_id(table_name)
-        q = f'''INSERT INTO {table_name} {table_columns}VALUES ({id_+ 1}, {values})'''
+        q = f'''INSERT INTO {table_name} {table_columns} VALUES ({id_+ 1}, {values})'''
         print(q)
-        self.cur.execute(q)
-        self.con.commit()
+        # self.cur.execute(q)
+        # self.con.commit()
+
+    def add_new_student(self, _student, _parent, _group):
+        print(_student, _parent, _group)
+        self.insert('human', _student, 'id, first_name, second_name, birth_date, phone')
+
 
     def insert_from_file(self, file_name, table_name):
 
