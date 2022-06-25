@@ -43,10 +43,7 @@ if answer == '1':
     elif answer == '5':
         # new student
         answer = menu.new_student()
-        student = answer[0] # .split(', ')
-        parent = answer[1] # .split(', ')
-        id_ = answer[2]
-        db.add_new_student(student, parent, id_)
+        db.add_new_student(answer)
 
     else:
         # insert from file
