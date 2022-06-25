@@ -10,9 +10,9 @@ class View:
         return input(Fore.GREEN + 'що будем робити?: ')
 
     def db_menu(self, file_name):
-        print(Fore.CYAN + '1 - Вивід з БД\n2 - Вставка в БД\n3 - Замінити інформацію\n4 - Видалити')
+        print(Fore.CYAN + '1 - Вивід з БД\n2 - Вставка в БД\n3 - Замінити інформацію\n4 - Видалити\n5 - новий учень')
         if file_name:
-            print('5 - Вставка з файлу')
+            print('6 - Вставка з файлу')
         return input(Fore.GREEN + 'що будем робити?: ')
 
     def new_menu(self):
@@ -28,13 +28,13 @@ class View:
             input(Fore.GREEN + 'Дата народження (DD.MM.YYYY): ')
         )
 
-    def new_group(self):
-        print(Fore.CYAN + 'Нова група')
+    def new_student(self):
+        print(Fore.CYAN + 'Новий студент')
+        print(Fore.RED + 'Коми тільки для розділення!!!!!!!!!')
         return (
-            input(Fore.GREEN + "Ім'я: "),
-            input(Fore.GREEN + 'Прізвище: '),
-            input(Fore.GREEN + 'Номер телефону: '),
-            input(Fore.GREEN + 'Дата народження (DD.MM.YYYY): ')
+            input(Fore.GREEN + "Ім'я, Прізвище, Дата народження (DD.MM.YYYY), Номер телефону: "),
+            input(Fore.GREEN + "Ім'я по-батькові, Прізвище, Номер телефону, Дата народження (DD.MM.YYYY): "),
+            input(Fore.GREEN + 'номер групи: ')
         )
 
     def insert_menu(self):

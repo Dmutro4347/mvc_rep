@@ -39,6 +39,15 @@ if answer == '1':
 
         values = menu.delete_menu()
         db.delete(values[0], values[1])
+
+    elif answer == '5':
+        # new student
+        answer = menu.new_student()
+        student = answer[0].split(', ')
+        parent = answer[1].split(', ')
+        id_ = answer[2]
+        print(student, parent,  id_)
+
     else:
         # insert from file
 
@@ -48,5 +57,3 @@ elif answer == '2':
     pass
 else:
     pass
-
-
