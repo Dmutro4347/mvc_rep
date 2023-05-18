@@ -2,7 +2,7 @@ import db_class
 import view
 file_name = 'course.txt'
 
-db = db_class.DataBase('studio', 'Int-32768')
+db = db_class.DataBase('studio', '')
 menu = view.View()
 # db.insert_from_file('group_', 'group_.txt')
 answer = menu.main_menu()
